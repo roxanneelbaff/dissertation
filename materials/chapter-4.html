@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 4 — The Role of Style in Audience Persuasion</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a class="nav-brand" href="../index.html">Roxanne El Baff — Dissertation Guide</a>
+    <div class="nav-links">
+      <button id="hamburger" class="nav-hamburger" aria-label="Toggle sidebar">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+      </button>
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link" href="../read.html">Read</a>
+      <a class="nav-link" href="../listen.html">Listen</a>
+      <a class="nav-link active" href="index.html">Code &amp; Materials</a>
+    </div>
+  </nav>
+
+  <div id="sidebar-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:39;"></div>
+
+  <div class="materials-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <main class="main-content">
+
+      <div class="page-header">
+        <p class="page-header-eyebrow">Chapter 4</p>
+        <h1 class="page-header-title">The Role of Style in Audience Persuasion</h1>
+        <p class="page-header-desc">
+          Which non-topical linguistic features make an argument effective — and does that differ across
+          political ideologies, ideology intensity, and personality profiles?
+        </p>
+      </div>
+
+      <!-- Overview -->
+      <div class="contrib-card contrib-card-ch4">
+        <div class="badge-row">
+          <span class="badge badge-analysis">Analysis</span>
+        </div>
+        <h2 class="contrib-card-title">Overview</h2>
+        <p>
+          After defining what makes an argument effective for different audience profiles (Chapter 3),
+          this chapter asks <em>how</em> — specifically, which stylistic choices drive that effectiveness.
+          Style is operationalized as non-topical text features that capture <em>how</em> something is said
+          rather than <em>what</em> is said: emotional tone, subjectivity, argumentativeness, and related cues.
+        </p>
+        <p>
+          Using supervised machine learning, feature engineering, and inferential statistics, the chapter
+          identifies which style features correlate with persuasive effectiveness for liberals vs. conservatives,
+          lean vs. extreme ideologues, and different personality clusters — across three rhetorical canons:
+          style (<em>Elocutio</em>), topic scope (<em>Inventio</em>), and discourse structure (<em>Dispositio</em>).
+        </p>
+      </div>
+
+      <!-- Contribution -->
+      <div id="contribution" class="contrib-card contrib-card-ch4" style="scroll-margin-top:80px;">
+        <div class="badge-row">
+          <span class="badge badge-analysis">Analysis</span>
+        </div>
+        <h2 class="contrib-card-title">Contribution: Style Analysis Across Audience Profiles</h2>
+
+        <p class="section-heading">Research Question</p>
+        <p style="font-size:0.875rem;color:#334155;">
+          <strong>RQ 2.</strong> Which style features impact an argument's effectiveness across different audience profiles?
+        </p>
+
+        <p class="section-heading">Context Snapshot</p>
+        <div class="context-snapshot">
+          <div class="context-snapshot-header">Persuasion Dimensions — Contribution 2</div>
+          <table>
+            <thead>
+              <tr>
+                <th class="dim-num">#</th>
+                <th class="dim-label">Dimension</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="dim-num">I</td><td class="dim-label">Arguer</td><td>Liberal Americans</td></tr>
+              <tr><td class="dim-num">II</td><td class="dim-label">Argument</td><td>News Editorials · style features <em>(primary focus)</em></td></tr>
+              <tr><td class="dim-num" rowspan="3">III</td><td class="dim-label">Audience</td><td>Liberal / Conservative Americans</td></tr>
+              <tr><td class="dim-label"></td><td>Lean / Extreme ideology intensity</td></tr>
+              <tr><td class="dim-label"></td><td>Personality traits &amp; clusters</td></tr>
+              <tr><td class="dim-num">IV</td><td class="dim-label">Effect</td><td>Argument effectiveness</td></tr>
+            </tbody>
+          </table>
+          <div class="context-snapshot-footer">Primary focus is Dimension II — style features and their correlation with effectiveness across audience profiles.</div>
+        </div>
+
+        <p class="section-heading">Addressed Gap</p>
+        <p>
+          While prior work studied the persuasive effects of argument content and structure, which
+          stylistic choices affect which audience profiles remained unexplored. This contribution
+          isolates style from content and maps its differential impact across three audience dimensions.
+        </p>
+
+        <p class="section-heading">Key Findings</p>
+        <ul class="contrib-list">
+          <li>Style affects liberal but not conservative readers; extreme but not lean ideologues; and high-neuroticism readers but not balanced personality profiles.</li>
+          <li>News editorials on <em>national</em> topics have the highest stylistic persuasive effect — greater than state-level or international topics.</li>
+          <li>A negative emotional tone in the editorial body correlates with effectiveness for liberal audiences.</li>
+          <li>Style-oriented classifiers outperform content-oriented ones for predicting effectiveness for specific profiles.</li>
+        </ul>
+
+        <p class="section-heading">Papers</p>
+        <div class="link-row">
+          <a class="link-btn disabled" href="#">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 10L10 2M4 2h6v6"/></svg>
+            El Baff et al., EMNLP 2020
+          </a>
+          <a class="link-btn disabled" href="#">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 10L10 2M4 2h6v6"/></svg>
+            El Baff et al., PEOPLES 2020
+          </a>
+          <a class="link-btn" href="https://aclanthology.org/2024.naacl-long.199/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 10L10 2M4 2h6v6"/></svg>
+            Sengupta et al., NAACL 2024
+          </a>
+        </div>
+
+        <p class="section-heading">Code</p>
+        <div class="link-row">
+          <a class="link-btn disabled" href="#">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
+            Style Feature Extraction
+          </a>
+          <a class="link-btn disabled" href="#">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
+            Classification Experiments
+          </a>
+        </div>
+        <p style="font-size:0.75rem;color:#94a3b8;margin-top:0.5rem;">Code links coming soon</p>
+
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    Roxanne El Baff · Bauhaus-Universität Weimar · 2026
+  </footer>
+
+  <script src="../js/sidebar.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

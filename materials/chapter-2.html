@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 2 — Background &amp; Related Work</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a class="nav-brand" href="../index.html">Roxanne El Baff — Dissertation Guide</a>
+    <div class="nav-links">
+      <button id="hamburger" class="nav-hamburger" aria-label="Toggle sidebar">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+      </button>
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link" href="../read.html">Read</a>
+      <a class="nav-link" href="../listen.html">Listen</a>
+      <a class="nav-link active" href="index.html">Code &amp; Materials</a>
+    </div>
+  </nav>
+
+  <div id="sidebar-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:39;"></div>
+
+  <div class="materials-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <main class="main-content">
+
+      <div class="page-header">
+        <p class="page-header-eyebrow">Chapter 2</p>
+        <h1 class="page-header-title">Background &amp; Related Work</h1>
+        <p class="page-header-desc">
+          Argumentation theory foundations, the computational argumentation landscape,
+          and a multi-agent pipeline built to explore related work at scale.
+        </p>
+      </div>
+
+      <!-- Overview -->
+      <div class="contrib-card contrib-card-ch2">
+        <div class="badge-row">
+          <span class="badge badge-pipeline">Chapter 2</span>
+        </div>
+        <h2 class="contrib-card-title">Overview</h2>
+        <p>
+          This chapter situates the dissertation within argumentation theory, tracing the three classical
+          disciplines — logic, dialectic, and rhetoric — and motivating the focus on rhetorical argumentation
+          as the lens most sensitive to audience. It details the shift in computational argumentation (CA)
+          from pre-LLM to LLM-era methods, providing important context for the methodological choices made
+          across Chapters 3–5.
+        </p>
+        <p>
+          The chapter surveys related work across all three CA tasks addressed in the dissertation:
+          argument quality assessment, style analysis, and argument generation. It highlights key gaps —
+          particularly the absence of audience-centric modeling — that the dissertation's contributions
+          directly address.
+        </p>
+      </div>
+
+      <!-- Multi-agent pipeline -->
+      <div id="pipeline" class="contrib-card contrib-card-ch2" style="scroll-margin-top:80px;">
+        <div class="badge-row">
+          <span class="badge badge-pipeline">Tool</span>
+          <span class="badge badge-pipeline">Multi-Agent</span>
+        </div>
+        <h2 class="contrib-card-title">Multi-Agent Pipeline for Related Work</h2>
+
+        <p class="section-heading">Overview</p>
+        <p>
+          To support the literature review for this dissertation, a multi-agent pipeline was developed
+          to automate the exploration and synthesis of related work in computational argumentation.
+          The pipeline retrieves, filters, clusters, and summarizes relevant papers — drastically
+          reducing the manual effort required to map a rapidly evolving field.
+        </p>
+
+        <p class="section-heading">Architecture</p>
+        <div class="arch-placeholder">
+          <div style="font-size:1.75rem;margin-bottom:0.5rem;">🏗️</div>
+          <p style="font-weight:600;margin-bottom:0.25rem;">Architecture diagram</p>
+          <p style="color:#94a3b8;font-size:0.8rem;">Coming soon — will illustrate the agent roles, data flow, and tool integrations.</p>
+        </div>
+
+        <div class="link-row">
+          <a class="link-btn primary disabled" href="#">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><rect x="1" y="1" width="11" height="11" rx="2"/><path d="M4 6.5h5M6.5 4v5"/></svg>
+            View App
+          </a>
+          <a class="link-btn disabled" href="#">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
+            Code
+          </a>
+        </div>
+        <p style="font-size:0.75rem;color:#94a3b8;margin-top:0.5rem;">Links coming soon</p>
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    Roxanne El Baff · Bauhaus-Universität Weimar · 2026
+  </footer>
+
+  <script src="../js/sidebar.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

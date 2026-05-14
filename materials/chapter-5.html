@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 5 — Ideology-Based Argument Generation</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a class="nav-brand" href="../index.html">Roxanne El Baff — Dissertation Guide</a>
+    <div class="nav-links">
+      <button id="hamburger" class="nav-hamburger" aria-label="Toggle sidebar">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+      </button>
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link" href="../read.html">Read</a>
+      <a class="nav-link" href="../listen.html">Listen</a>
+      <a class="nav-link active" href="index.html">Code &amp; Materials</a>
+    </div>
+  </nav>
+
+  <div id="sidebar-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:39;"></div>
+
+  <div class="materials-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <main class="main-content">
+
+      <div class="page-header">
+        <p class="page-header-eyebrow">Chapter 5</p>
+        <h1 class="page-header-title">Ideology-Based Argument Generation</h1>
+        <p class="page-header-desc">
+          Two approaches to generating audience-tailored arguments: a pre-LLM controlled synthesis
+          based on rhetorical strategies, and an LLM-era rewriting method that transforms
+          ineffective arguments into effective ones for a target ideology.
+        </p>
+      </div>
+
+      <!-- Overview -->
+      <div class="contrib-card contrib-card-ch5a">
+        <div class="badge-row">
+          <span class="badge badge-generation">Generation</span>
+        </div>
+        <h2 class="contrib-card-title">Overview</h2>
+        <p>
+          This chapter addresses the generation of arguments tailored to specific audiences. The two
+          contributions reflect the technical landscape at the time of their development. The first,
+          written before instruction-based LLMs were widely available, approximates audience-aware
+          generation via rhetorical strategies (emotional vs. logical appeal) in a controlled setting.
+          The second, developed in the LLM era, directly models audience ideology to rewrite
+          ineffective arguments into effective ones.
+        </p>
+        <p>
+          Together, the contributions span a decade of argument generation research and demonstrate
+          a clear progression — from constrained, strategy-driven synthesis to open-ended, audience-conditioned rewriting.
+        </p>
+      </div>
+
+      <!-- Contribution 1: Pre-LLM -->
+      <div id="contrib1" class="contrib-card contrib-card-ch5a" style="scroll-margin-top:80px;">
+        <div class="badge-row">
+          <span class="badge badge-generation">Generation</span>
+          <span class="badge badge-pre-llm">Pre-LLM</span>
+        </div>
+        <h2 class="contrib-card-title">Contribution 1 — Rhetorical Strategy Based Generation</h2>
+
+        <p class="section-heading">Research Question</p>
+        <p style="font-size:0.875rem;color:#334155;">
+          <strong>RQ 3.</strong> How can arguments be generated to resonate with audiences affected by rhetorical strategies (i.e., emotional vs. logical appeal)?
+        </p>
+
+        <p class="section-heading">Context Snapshot</p>
+        <div class="context-snapshot">
+          <div class="context-snapshot-header">Persuasion Dimensions — Contribution 3 (Pre-LLM)</div>
+          <table>
+            <thead>
+              <tr><th class="dim-num">#</th><th class="dim-label">Dimension</th><th>Value</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="dim-num">I</td><td class="dim-label">Arguer</td><td>—</td></tr>
+              <tr><td class="dim-num">II</td><td class="dim-label">Argument</td><td>Microtexts · rhetorical strategy <em>(primary focus)</em></td></tr>
+              <tr><td class="dim-num">III</td><td class="dim-label">Audience</td><td>Profiles affected by logos / pathos</td></tr>
+              <tr><td class="dim-num">IV</td><td class="dim-label">Effect</td><td>Strategy resonance (emotional vs. logical)</td></tr>
+            </tbody>
+          </table>
+          <div class="context-snapshot-footer">Controlled generation setting: given a topic, stance, and pool of argumentative discourse units (ADUs), generate a pathos- or logos-oriented argument.</div>
+        </div>
+
+        <p class="section-heading">Addressed Gap</p>
+        <p>
+          Prior argument generation was limited to short-span text or statistical synthesis, often
+          producing incoherent multi-sentence arguments. This work introduces a systematic, three-step
+          pipeline — abstract, select &amp; arrange, phrase — that generates coherent arguments optimised
+          for a target rhetorical strategy rather than surface-level fluency alone.
+        </p>
+
+        <p class="section-heading">Key Contributions</p>
+        <ul class="contrib-list">
+          <li>A new view of argument synthesis combining argumentative and rhetorical considerations with language modelling over argumentative discourse units (ADUs).</li>
+          <li>A novel approach that clusters ADUs by style, learns to select and arrange them, and then phrases them to generate strategy-specific arguments for any topic and stance.</li>
+          <li>Experimental evidence that pathos- and logos-oriented arguments can be generated computationally and are distinguishable by annotators.</li>
+        </ul>
+
+        <p class="section-heading">Papers</p>
+        <div class="link-row">
+          <a class="link-btn disabled" href="#">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 10L10 2M4 2h6v6"/></svg>
+            El Baff et al., INLG 2019
+          </a>
+          <a class="link-btn" href="https://aclanthology.org/C18-1318.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 10L10 2M4 2h6v6"/></svg>
+            Wachsmuth et al., COLING 2018
+          </a>
+        </div>
+
+        <p class="section-heading">Code</p>
+        <div class="link-row">
+          <a class="link-btn disabled" href="#">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
+            Generation Pipeline
+          </a>
+        </div>
+        <p style="font-size:0.75rem;color:#94a3b8;margin-top:0.5rem;">Code link coming soon</p>
+      </div>
+
+      <!-- Bridging -->
+      <div id="bridging" class="contrib-card contrib-card-bridging" style="scroll-margin-top:80px;">
+        <div class="badge-row">
+          <span class="badge badge-bridging">Bridging Contribution</span>
+          <span class="badge badge-corpus">Datasets</span>
+        </div>
+        <h2 class="contrib-card-title">Bridging Contribution — Ideology-Based Argument Datasets</h2>
+
+        <p>
+          Between the two main generation contributions sits a dataset construction effort that serves
+          both. Drawing on a large-scale debate dataset, two ideology-labelled argument corpora were
+          created — one for conservative audiences and one for liberal audiences — providing the
+          empirical foundation for the LLM-era rewriting task.
+        </p>
+        <p>
+          Effectiveness labels are derived from pre- and post-debate audience votes, operationalizing
+          whether an argument shifted a cross-ideological audience's perspective.
+        </p>
+
+        <p class="section-heading">Datasets</p>
+        <div style="background:#fff1f2;border:1px solid #fda4af;border-radius:8px;padding:1rem 1.25rem;font-size:0.85rem;color:#334155;margin-bottom:1rem;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+            <div>
+              <p style="font-weight:700;color:#be123c;margin-bottom:0.2rem;">Conservative Dataset</p>
+              <p>~82,000 arguments with binary effectiveness labels for conservative audiences</p>
+            </div>
+            <div>
+              <p style="font-weight:700;color:#be123c;margin-bottom:0.2rem;">Liberal Dataset</p>
+              <p>~55,000 arguments with binary effectiveness labels for liberal audiences</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="link-row">
+          <a class="link-btn disabled" href="#">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
+            Dataset Code &amp; Scripts
+          </a>
+        </div>
+        <p style="font-size:0.75rem;color:#94a3b8;margin-top:0.5rem;">Coming soon</p>
+      </div>
+
+      <!-- Contribution 2: LLM Era -->
+      <div id="contrib2" class="contrib-card contrib-card-ch5b" style="scroll-margin-top:80px;">
+        <div class="badge-row">
+          <span class="badge badge-generation">Generation</span>
+          <span class="badge badge-llm-era">LLM Era</span>
+        </div>
+        <h2 class="contrib-card-title">Contribution 2 — Effective Argument Rewriting</h2>
+
+        <p class="section-heading">Research Question</p>
+        <p style="font-size:0.875rem;color:#334155;">
+          <strong>RQ 4.</strong> How can arguments be effectively generated to resonate with audiences with specific beliefs?
+        </p>
+
+        <p class="section-heading">Context Snapshot</p>
+        <div class="context-snapshot">
+          <div class="context-snapshot-header">Persuasion Dimensions — Contribution 3 (LLM Era)</div>
+          <table>
+            <thead>
+              <tr><th class="dim-num">#</th><th class="dim-label">Dimension</th><th>Value</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="dim-num">I</td><td class="dim-label">Arguer</td><td>Liberal / Conservative Americans</td></tr>
+              <tr><td class="dim-num">II</td><td class="dim-label">Argument</td><td>Debate Arguments · style transfer <em>(primary focus)</em></td></tr>
+              <tr><td class="dim-num">III</td><td class="dim-label">Audience</td><td>Liberal / Conservative Americans</td></tr>
+              <tr><td class="dim-num">IV</td><td class="dim-label">Effect</td><td>Effectiveness: ineffective → effective <em>(binary)</em></td></tr>
+            </tbody>
+          </table>
+          <div class="context-snapshot-footer">Goal: rewrite an ineffective argument to be effective for a target ideology, retaining content while adjusting style.</div>
+        </div>
+
+        <p class="section-heading">Addressed Gap</p>
+        <p>
+          While prior work tackled argument synthesis, quality assessment, and text style transfer in
+          isolation, this work is the first to formulate and empirically study
+          <em>ideology-conditioned argument rewriting</em> — adjusting style while preserving content
+          to shift a cross-ideological audience's perspective.
+        </p>
+
+        <p class="section-heading">Methodology</p>
+        <ul class="contrib-list">
+          <li><strong>Data Curation.</strong> Conservative (~82k) and liberal (~55k) argument datasets with binary effectiveness labels derived from audience voting.</li>
+          <li><strong>Generation.</strong> Three LLM-based methods with in-context learning: zero-shot prompting, few-shot prompting (with an effective argument as exemplar), and LLM steering via activation engineering.</li>
+          <li><strong>Evaluation.</strong> Automated classifier, LLM-as-a-judge, and human evaluation of 100 argument tuples (1,240 human annotations total) for both ideologies.</li>
+        </ul>
+
+        <p class="section-heading">Key Contributions</p>
+        <ul class="contrib-list">
+          <li>A new style transfer task: transform an ineffective argument into an effective one for a target ideology.</li>
+          <li>~32,000 argument rewrites from 500 ineffective arguments per ideology.</li>
+          <li>Empirical evidence that both human annotators and LLM judges prefer the rewrites over the originals for both ideologies.</li>
+          <li>Models can successfully rewrite for one ideology while remaining resistant to the other.</li>
+        </ul>
+
+        <p class="section-heading">Papers</p>
+        <div class="link-row">
+          <a class="link-btn disabled" href="#">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 10L10 2M4 2h6v6"/></svg>
+            El Baff et al., EMNLP Findings 2024
+          </a>
+        </div>
+
+        <p class="section-heading">Code &amp; Data</p>
+        <div class="link-row">
+          <a class="link-btn disabled" href="#">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
+            Rewriting Code
+          </a>
+          <a class="link-btn disabled" href="#">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
+            Rewrites Dataset (~32k)
+          </a>
+          <a class="link-btn disabled" href="#">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
+            Human Annotations
+          </a>
+        </div>
+        <p style="font-size:0.75rem;color:#94a3b8;margin-top:0.5rem;">Links coming soon</p>
+
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    Roxanne El Baff · Bauhaus-Universität Weimar · 2026
+  </footer>
+
+  <script src="../js/sidebar.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

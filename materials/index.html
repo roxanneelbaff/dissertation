@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code &amp; Materials — Audience-Aware Modeling in Computational Argumentation</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a class="nav-brand" href="../index.html">Roxanne El Baff — Dissertation Guide</a>
+    <div class="nav-links">
+      <button id="hamburger" class="nav-hamburger" aria-label="Toggle sidebar">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+      </button>
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link" href="../read.html">Read</a>
+      <a class="nav-link" href="../listen.html">Listen</a>
+      <a class="nav-link active" href="index.html">Code &amp; Materials</a>
+    </div>
+  </nav>
+
+  <!-- overlay for mobile sidebar -->
+  <div id="sidebar-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:39;"></div>
+
+  <div class="materials-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <p class="page-header-eyebrow">Dissertation Guide</p>
+        <h1 class="page-header-title">Code &amp; Materials</h1>
+        <p class="page-header-desc">
+          Chapter-by-chapter overviews, papers, corpora, and code repositories for all research contributions.
+        </p>
+      </div>
+
+      <!-- Chapter cards grid -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;margin-bottom:3rem;">
+
+        <a href="chapter-2.html" style="display:block;background:#fff;border:1px solid #e2e8f0;border-left:4px solid #475569;border-radius:10px;padding:1.5rem;transition:box-shadow .2s,transform .2s;text-decoration:none;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='';this.style.transform=''">
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem;">
+            <span class="badge badge-pipeline">Ch 2</span>
+          </div>
+          <p style="font-family:'Lora',serif;font-size:1rem;font-weight:700;color:#0f172a;margin-bottom:0.4rem;">Background &amp; Related Work</p>
+          <p style="font-size:0.82rem;color:#64748b;line-height:1.5;">Argumentation theory, computational argumentation landscape, and a multi-agent pipeline for related work exploration.</p>
+        </a>
+
+        <a href="chapter-3.html" style="display:block;background:#fff;border:1px solid #e2e8f0;border-left:4px solid #00897b;border-radius:10px;padding:1.5rem;transition:box-shadow .2s,transform .2s;text-decoration:none;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='';this.style.transform=''">
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem;">
+            <span class="badge badge-pipeline">Ch 3</span>
+            <span class="badge badge-assessment">Assessment</span>
+          </div>
+          <p style="font-family:'Lora',serif;font-size:1rem;font-weight:700;color:#0f172a;margin-bottom:0.4rem;">Argument Quality Through an Audience Lens</p>
+          <p style="font-size:0.82rem;color:#64748b;line-height:1.5;">A framework for cross-ideological argument quality with an annotated corpus of 1,000 news editorials.</p>
+        </a>
+
+        <a href="chapter-4.html" style="display:block;background:#fff;border:1px solid #e2e8f0;border-left:4px solid #7b2d42;border-radius:10px;padding:1.5rem;transition:box-shadow .2s,transform .2s;text-decoration:none;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='';this.style.transform=''">
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem;">
+            <span class="badge badge-pipeline">Ch 4</span>
+            <span class="badge badge-analysis">Analysis</span>
+          </div>
+          <p style="font-family:'Lora',serif;font-size:1rem;font-weight:700;color:#0f172a;margin-bottom:0.4rem;">The Role of Style in Audience Persuasion</p>
+          <p style="font-size:0.82rem;color:#64748b;line-height:1.5;">Which style features impact argument effectiveness across political ideologies, intensity levels, and personality profiles.</p>
+        </a>
+
+        <a href="chapter-5.html" style="display:block;background:#fff;border:1px solid #e2e8f0;border-left:4px solid #8b6914;border-radius:10px;padding:1.5rem;transition:box-shadow .2s,transform .2s;text-decoration:none;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='';this.style.transform=''">
+          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem;">
+            <span class="badge badge-pipeline">Ch 5</span>
+            <span class="badge badge-generation">Generation</span>
+          </div>
+          <p style="font-family:'Lora',serif;font-size:1rem;font-weight:700;color:#0f172a;margin-bottom:0.4rem;">Ideology-Based Argument Generation</p>
+          <p style="font-size:0.82rem;color:#64748b;line-height:1.5;">Two approaches: pre-LLM rhetorical strategy synthesis and LLM-era ideology-conditioned argument rewriting.</p>
+        </a>
+
+      </div>
+
+      <!-- Dissertation map -->
+      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:1.5rem 1.75rem;">
+        <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#94a3b8;margin-bottom:1rem;">Contribution Map</p>
+        <div style="display:grid;grid-template-columns:auto 1fr 1fr;gap:0.4rem 1rem;font-size:0.82rem;align-items:center;">
+          <span style="font-weight:700;color:#94a3b8;font-size:0.7rem;text-transform:uppercase;letter-spacing:.06em;">Chapter</span>
+          <span style="font-weight:700;color:#94a3b8;font-size:0.7rem;text-transform:uppercase;letter-spacing:.06em;">Task</span>
+          <span style="font-weight:700;color:#94a3b8;font-size:0.7rem;text-transform:uppercase;letter-spacing:.06em;">Focus</span>
+
+          <span class="badge badge-pipeline" style="width:fit-content;">Ch 3</span>
+          <span class="badge badge-assessment" style="width:fit-content;">Assessment</span>
+          <span style="color:#334155;">Argument quality &amp; ideology-aware corpus</span>
+
+          <span class="badge badge-pipeline" style="width:fit-content;">Ch 4</span>
+          <span class="badge badge-analysis" style="width:fit-content;">Analysis</span>
+          <span style="color:#334155;">Style features across audience profiles</span>
+
+          <span class="badge badge-pipeline" style="width:fit-content;">Ch 5</span>
+          <span class="badge badge-generation" style="width:fit-content;">Generation</span>
+          <span style="color:#334155;">Strategy-based &amp; LLM argument rewriting</span>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    Roxanne El Baff · Bauhaus-Universität Weimar · 2026
+  </footer>
+
+  <script src="../js/sidebar.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

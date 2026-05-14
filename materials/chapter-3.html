@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 3 — Argument Quality Through an Audience Lens</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a class="nav-brand" href="../index.html">Roxanne El Baff — Dissertation Guide</a>
+    <div class="nav-links">
+      <button id="hamburger" class="nav-hamburger" aria-label="Toggle sidebar">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+      </button>
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link" href="../read.html">Read</a>
+      <a class="nav-link" href="../listen.html">Listen</a>
+      <a class="nav-link active" href="index.html">Code &amp; Materials</a>
+    </div>
+  </nav>
+
+  <div id="sidebar-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:39;"></div>
+
+  <div class="materials-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <main class="main-content">
+
+      <div class="page-header">
+        <p class="page-header-eyebrow">Chapter 3</p>
+        <h1 class="page-header-title">Argument Quality Through an Audience Lens</h1>
+        <p class="page-header-desc">
+          A computational framework for argument quality that captures how audiences with opposing
+          political ideologies perceive an argument's effectiveness.
+        </p>
+      </div>
+
+      <!-- Overview -->
+      <div class="contrib-card contrib-card-ch3">
+        <div class="badge-row">
+          <span class="badge badge-assessment">Assessment</span>
+          <span class="badge badge-corpus">Corpus</span>
+        </div>
+        <h2 class="contrib-card-title">Overview</h2>
+        <p>
+          Argument quality is rarely absolute — an argument that challenges one ideological group may
+          reinforce another, or leave both unaffected. This chapter introduces a framework that defines
+          quality through the lens of cross-profile effectiveness: how an argument lands differently for
+          liberal versus conservative American audiences.
+        </p>
+        <p>
+          The framework distinguishes three audience responses — <em>challenging</em> (audience reconsiders
+          an opposing stance), <em>reinforcing</em> (audience strengthens an existing stance), and
+          <em>ineffective</em> (no change). A high-quality argument draws both ideological groups toward
+          the same stance, narrowing the divide between them.
+        </p>
+      </div>
+
+      <!-- Contribution -->
+      <div id="contribution" class="contrib-card contrib-card-ch3" style="scroll-margin-top:80px;">
+        <div class="badge-row">
+          <span class="badge badge-assessment">Assessment</span>
+          <span class="badge badge-corpus">Corpus</span>
+        </div>
+        <h2 class="contrib-card-title">Contribution: Ideology-Centric Argument Quality</h2>
+
+        <!-- Context snapshot -->
+        <p class="section-heading">Research Questions</p>
+        <p style="font-size:0.875rem;color:#334155;">
+          <strong>RQ 1a.</strong> What makes an argument effective for audiences with specific profiles?<br>
+          <strong>RQ 1b.</strong> What defines argument quality across audience profiles?
+        </p>
+
+        <p class="section-heading">Context Snapshot</p>
+        <div class="context-snapshot">
+          <div class="context-snapshot-header">Persuasion Dimensions — Contribution 1</div>
+          <table>
+            <thead>
+              <tr>
+                <th class="dim-num">#</th>
+                <th class="dim-label">Dimension</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="dim-num">I</td><td class="dim-label">Arguer</td><td>Liberal Americans</td></tr>
+              <tr><td class="dim-num">II</td><td class="dim-label">Argument</td><td>News Editorials</td></tr>
+              <tr><td class="dim-num">III</td><td class="dim-label">Audience</td><td>Liberal / Conservative Americans</td></tr>
+              <tr><td class="dim-num">IV</td><td class="dim-label">Effect</td><td>Argument effectiveness <em>(primary focus)</em></td></tr>
+            </tbody>
+          </table>
+          <div class="context-snapshot-footer">Arguer profiles, audience profiles, and argument genre are controlled variables. The dependent variable is Dimension IV — the reported effect of the argument on the audience.</div>
+        </div>
+
+        <p class="section-heading">Addressed Gap</p>
+        <p>
+          Prior work in computational argumentation assessed argument quality under objective, logic-based
+          assumptions — without modeling how different audience ideologies perceive that quality. This work
+          is among the first to incorporate ideological audience profiles at the discourse level.
+        </p>
+
+        <p class="section-heading">Key Findings</p>
+        <ul class="contrib-list">
+          <li>No more than 6% of editorials meet the proposed notion of high quality; only 1% changed any annotator's stance outright.</li>
+          <li>Cross-ideological persuasion is significantly harder than within-ideology persuasion — annotators sharing the same ideology show higher inter-annotator agreement.</li>
+          <li>The framework and corpus provide a reusable foundation for cross-ideological argument studies.</li>
+        </ul>
+
+        <p class="section-heading">Papers</p>
+        <div class="link-row">
+          <a class="link-btn" href="#" title="El Baff et al., CoNLL 2018 — placeholder">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 10L10 2M4 2h6v6"/></svg>
+            El Baff et al., CoNLL 2018
+          </a>
+          <a class="link-btn disabled" href="#" title="Coming soon">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 10L10 2M4 2h6v6"/></svg>
+            El Baff et al., 2024
+          </a>
+        </div>
+
+        <p class="section-heading">Corpus</p>
+        <div class="link-row">
+          <a class="link-btn primary" href="https://webis.de/data/webis-editorial-quality-18.html" target="_blank" rel="noopener">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 10L10 2M4 2h6v6"/></svg>
+            Webis-Editorial-Quality-18
+          </a>
+        </div>
+        <p style="font-size:0.8rem;color:#64748b;margin-top:0.5rem;">
+          1,000 news editorials each annotated by 3 liberal and 3 conservative American annotators,
+          with effectiveness labels and free-text justifications.
+        </p>
+
+        <p class="section-heading">Code</p>
+        <div class="link-row">
+          <a class="link-btn disabled" href="#">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
+            Experiments Code
+          </a>
+          <a class="link-btn disabled" href="#">
+            <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
+            LLM-Based Predictions
+          </a>
+        </div>
+        <p style="font-size:0.75rem;color:#94a3b8;margin-top:0.5rem;">Code links coming soon</p>
+
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    Roxanne El Baff · Bauhaus-Universität Weimar · 2026
+  </footer>
+
+  <script src="../js/sidebar.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
