@@ -39,7 +39,7 @@
       </div>
 
       <!-- Overview -->
-      <div class="contrib-card contrib-card-ch5a">
+      <div id="overview" class="contrib-card contrib-card-ch5a" style="scroll-margin-top:80px;">
         <div class="badge-row">
           <span class="badge badge-generation">Generation</span>
         </div>
@@ -54,15 +54,16 @@
         </p>
         <p>
           Together, the contributions span a decade of argument generation research and demonstrate
-          a clear progression — from constrained, strategy-driven synthesis to open-ended, audience-conditioned rewriting.
+          a clear progression — from constrained, strategy-driven synthesis to open-ended,
+          audience-conditioned rewriting.
         </p>
       </div>
 
-      <!-- Contribution 1: Pre-LLM -->
+      <!-- Contribution 1: Pre-LLM (Section 5.1) -->
       <div id="contrib1" class="contrib-card contrib-card-ch5a" style="scroll-margin-top:80px;">
         <div class="badge-row">
           <span class="badge badge-generation">Generation</span>
-          <span class="badge badge-pre-llm">Pre-LLM</span>
+          <span class="badge badge-pre-llm">Pre-LLM · §5.1</span>
         </div>
         <h2 class="contrib-card-title">Contribution 1 — Rhetorical Strategy Based Generation</h2>
 
@@ -88,14 +89,6 @@
           <div class="context-snapshot-footer">Controlled generation setting: given a topic, stance, and pool of argumentative discourse units (ADUs), generate a pathos- or logos-oriented argument.</div>
         </div>
 
-        <p class="section-heading">Addressed Gap</p>
-        <p>
-          Prior argument generation was limited to short-span text or statistical synthesis, often
-          producing incoherent multi-sentence arguments. This work introduces a systematic, three-step
-          pipeline — abstract, select &amp; arrange, phrase — that generates coherent arguments optimised
-          for a target rhetorical strategy rather than surface-level fluency alone.
-        </p>
-
         <p class="section-heading">Key Contributions</p>
         <ul class="contrib-list">
           <li>A new view of argument synthesis combining argumentative and rhetorical considerations with language modelling over argumentative discourse units (ADUs).</li>
@@ -103,32 +96,27 @@
           <li>Experimental evidence that pathos- and logos-oriented arguments can be generated computationally and are distinguishable by annotators.</li>
         </ul>
 
-        <p class="section-heading">Papers</p>
+        <p class="section-heading">Papers &amp; Resources</p>
         <div class="link-row">
-          <a class="link-btn disabled" href="#">
+          <a class="link-btn" href="https://aclanthology.org/W19-8607/" target="_blank" rel="noopener">
             <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 10L10 2M4 2h6v6"/></svg>
             El Baff et al., INLG 2019
           </a>
-          <a class="link-btn" href="https://aclanthology.org/C18-1318.pdf" target="_blank" rel="noopener">
+          <a class="link-btn" href="https://aclanthology.org/C18-1318/" target="_blank" rel="noopener">
             <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 10L10 2M4 2h6v6"/></svg>
             Wachsmuth et al., COLING 2018
           </a>
-        </div>
-
-        <p class="section-heading">Code</p>
-        <div class="link-row">
           <a class="link-btn disabled" href="#">
             <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
-            Generation Pipeline
+            Code
           </a>
         </div>
-        <p style="font-size:0.75rem;color:#94a3b8;margin-top:0.5rem;">Code link coming soon</p>
       </div>
 
-      <!-- Bridging -->
+      <!-- Bridging (Section 5.2) -->
       <div id="bridging" class="contrib-card contrib-card-bridging" style="scroll-margin-top:80px;">
         <div class="badge-row">
-          <span class="badge badge-bridging">Bridging Contribution</span>
+          <span class="badge badge-bridging">Bridging Contribution · §5.2</span>
           <span class="badge badge-corpus">Datasets</span>
         </div>
         <h2 class="contrib-card-title">Bridging Contribution — Ideology-Based Argument Datasets</h2>
@@ -158,20 +146,20 @@
           </div>
         </div>
 
+        <p class="section-heading">Resources</p>
         <div class="link-row">
-          <a class="link-btn disabled" href="#">
+          <a class="link-btn" href="https://github.com/roxanneelbaff/elbaff_dissertation_code" target="_blank" rel="noopener">
             <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
             Dataset Code &amp; Scripts
           </a>
         </div>
-        <p style="font-size:0.75rem;color:#94a3b8;margin-top:0.5rem;">Coming soon</p>
       </div>
 
-      <!-- Contribution 2: LLM Era -->
+      <!-- Contribution 2: LLM Era (Section 5.3) -->
       <div id="contrib2" class="contrib-card contrib-card-ch5b" style="scroll-margin-top:80px;">
         <div class="badge-row">
           <span class="badge badge-generation">Generation</span>
-          <span class="badge badge-llm-era">LLM Era</span>
+          <span class="badge badge-llm-era">LLM Era · §5.3</span>
         </div>
         <h2 class="contrib-card-title">Contribution 2 — Effective Argument Rewriting</h2>
 
@@ -197,21 +185,6 @@
           <div class="context-snapshot-footer">Goal: rewrite an ineffective argument to be effective for a target ideology, retaining content while adjusting style.</div>
         </div>
 
-        <p class="section-heading">Addressed Gap</p>
-        <p>
-          While prior work tackled argument synthesis, quality assessment, and text style transfer in
-          isolation, this work is the first to formulate and empirically study
-          <em>ideology-conditioned argument rewriting</em> — adjusting style while preserving content
-          to shift a cross-ideological audience's perspective.
-        </p>
-
-        <p class="section-heading">Methodology</p>
-        <ul class="contrib-list">
-          <li><strong>Data Curation.</strong> Conservative (~82k) and liberal (~55k) argument datasets with binary effectiveness labels derived from audience voting.</li>
-          <li><strong>Generation.</strong> Three LLM-based methods with in-context learning: zero-shot prompting, few-shot prompting (with an effective argument as exemplar), and LLM steering via activation engineering.</li>
-          <li><strong>Evaluation.</strong> Automated classifier, LLM-as-a-judge, and human evaluation of 100 argument tuples (1,240 human annotations total) for both ideologies.</li>
-        </ul>
-
         <p class="section-heading">Key Contributions</p>
         <ul class="contrib-list">
           <li>A new style transfer task: transform an ineffective argument into an effective one for a target ideology.</li>
@@ -220,31 +193,25 @@
           <li>Models can successfully rewrite for one ideology while remaining resistant to the other.</li>
         </ul>
 
-        <p class="section-heading">Papers</p>
+        <p class="section-heading">Papers &amp; Resources</p>
         <div class="link-row">
-          <a class="link-btn disabled" href="#">
+          <a class="link-btn" href="https://aclanthology.org/2024.findings-emnlp.265/" target="_blank" rel="noopener">
             <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 10L10 2M4 2h6v6"/></svg>
             El Baff et al., EMNLP Findings 2024
           </a>
-        </div>
-
-        <p class="section-heading">Code &amp; Data</p>
-        <div class="link-row">
-          <a class="link-btn disabled" href="#">
+          <a class="link-btn" href="https://github.com/roxanneelbaff/emnlp2024-iesta" target="_blank" rel="noopener">
             <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
-            Rewriting Code
+            Code
           </a>
-          <a class="link-btn disabled" href="#">
+          <!-- <a class="link-btn disabled" href="#">
             <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
             Rewrites Dataset (~32k)
           </a>
           <a class="link-btn disabled" href="#">
             <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2" style="width:13px;height:13px;"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
             Human Annotations
-          </a>
+          </a> -->
         </div>
-        <p style="font-size:0.75rem;color:#94a3b8;margin-top:0.5rem;">Links coming soon</p>
-
       </div>
 
     </main>

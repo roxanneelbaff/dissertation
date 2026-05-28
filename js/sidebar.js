@@ -26,7 +26,7 @@
       Chapter 3 &mdash; Argument Quality
     </div>
     <a class="sidebar-item sidebar-sub" href="chapter-3.html" data-page="chapter-3.html" data-ch="3">Overview</a>
-    <a class="sidebar-item sidebar-sub2" href="chapter-3.html#contribution" data-page="chapter-3.html" data-ch="3">Contribution: Audience Lens</a>
+    <a class="sidebar-item sidebar-sub" href="chapter-3.html#contribution" data-page="chapter-3.html" data-ch="3">Contribution</a>
 
     <!-- Chapter 4 -->
     <div class="sidebar-chapter-header">
@@ -34,7 +34,7 @@
       Chapter 4 &mdash; Style &amp; Persuasion
     </div>
     <a class="sidebar-item sidebar-sub" href="chapter-4.html" data-page="chapter-4.html" data-ch="4">Overview</a>
-    <a class="sidebar-item sidebar-sub2" href="chapter-4.html#contribution" data-page="chapter-4.html" data-ch="4">Contribution: Style Analysis</a>
+    <a class="sidebar-item sidebar-sub" href="chapter-4.html#contribution" data-page="chapter-4.html" data-ch="4">Contribution</a>
 
     <!-- Chapter 5 -->
     <div class="sidebar-chapter-header">
@@ -42,9 +42,9 @@
       Chapter 5 &mdash; Argument Generation
     </div>
     <a class="sidebar-item sidebar-sub" href="chapter-5.html" data-page="chapter-5.html" data-ch="5">Overview</a>
-    <a class="sidebar-item sidebar-sub2" href="chapter-5.html#contrib1" data-page="chapter-5.html" data-ch="5">Contribution 1: Rhetorical Strategy</a>
-    <a class="sidebar-item sidebar-sub2" href="chapter-5.html#bridging" data-page="chapter-5.html" data-ch="5" style="color:#be123c;">◈ Bridging Contribution</a>
-    <a class="sidebar-item sidebar-sub2" href="chapter-5.html#contrib2" data-page="chapter-5.html" data-ch="5">Contribution 2: Argument Rewrite</a>
+    <a class="sidebar-item sidebar-sub" href="chapter-5.html#contrib1" data-page="chapter-5.html" data-ch="5">Contribution 1</a>
+    <a class="sidebar-item sidebar-sub" href="chapter-5.html#bridging" data-page="chapter-5.html" data-ch="5">Bridging Contribution</a>
+    <a class="sidebar-item sidebar-sub" href="chapter-5.html#contrib2" data-page="chapter-5.html" data-ch="5">Contribution 2</a>
   `;
 
   const el = document.getElementById('sidebar');
