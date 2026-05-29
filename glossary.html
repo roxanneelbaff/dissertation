@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glossary — Roxanne El Baff Dissertation</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ── Glossary-specific styles ───────────────────── */
+    .glossary-layout {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 5rem;
+    }
+
+    /* Search + filter bar */
+    .glossary-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .glossary-search-wrap {
+      position: relative;
+      flex: 1;
+      min-width: 200px;
+    }
+    .glossary-search-wrap svg {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      pointer-events: none;
+    }
+    .glossary-search {
+      width: 100%;
+      padding: 0.55rem 0.9rem 0.55rem 2.25rem;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.875rem;
+      background: var(--color-surface);
+      color: var(--color-text);
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .glossary-search:focus {
+      border-color: #2d6a4f;
+      box-shadow: 0 0 0 3px rgba(45,106,79,0.1);
+    }
+
+    /* Chapter filter pills */
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .filter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      border: 1.5px solid var(--color-border);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: var(--color-surface);
+      color: var(--color-muted);
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+      user-select: none;
+    }
+    .filter-pill:hover { border-color: #94a3b8; color: var(--color-text); }
+    .filter-pill.active {
+      color: white;
+      border-color: transparent;
+    }
+    .filter-pill[data-ch="all"].active  { background: #2d6a4f; }
+    .filter-pill[data-ch="1"].active    { background: #2d6a4f; }
+    .filter-pill[data-ch="2"].active    { background: #475569; }
+    .filter-pill[data-ch="3"].active    { background: #00897b; }
+    .filter-pill[data-ch="4"].active    { background: #7b2d42; }
+    .filter-pill[data-ch="5"].active    { background: #8b6914; }
+    .filter-pill[data-ch="6"].active    { background: #2e4a6e; }
+
+    /* Disclaimer */
+    .glossary-disclaimer {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: #64748b;
+      background: #f8fafc;
+      border: 1px solid var(--color-border);
+      border-radius: 6px;
+      padding: 0.45rem 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+    .glossary-disclaimer::before {
+      content: 'ℹ';
+      font-size: 0.85rem;
+      opacity: 0.5;
+    }
+
+    /* Result counter */
+    .glossary-count {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      margin-bottom: 1.5rem;
+      min-height: 1.2em;
+    }
+
+    /* Section group */
+    .glossary-section { margin-bottom: 2.75rem; }
+    .glossary-section-title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: 1rem;
+    }
+
+    /* Term cards grid */
+    .glossary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 0.9rem;
+    }
+
+    .glossary-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: box-shadow 0.15s, border-color 0.15s;
+    }
+    .glossary-card:hover {
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      border-color: #cbd5e1;
+    }
+
+    .glossary-term {
+      font-size: 0.95rem;
+      font-weight: 700;
+      font-family: 'Lora', serif;
+      color: var(--color-text);
+      line-height: 1.25;
+    }
+
+    .glossary-definition {
+      font-size: 0.83rem;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    /* Chapter tags row */
+    .glossary-chapters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.25rem;
+    }
+    .ch-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      letter-spacing: 0.03em;
+    }
+    .ch-tag-1 { background: #edf7f1; color: #2d6a4f; }
+    .ch-tag-2 { background: #f1f5f9; color: #475569; }
+    .ch-tag-3 { background: #f0fdf8; color: #00897b; }
+    .ch-tag-4 { background: #fdf2f5; color: #7b2d42; }
+    .ch-tag-5 { background: #fdf8ee; color: #8b6914; }
+    .ch-tag-6 { background: #eef2ff; color: #2e4a6e; }
+
+    /* Search highlight */
+    mark {
+      background: #fef08a;
+      color: inherit;
+      border-radius: 2px;
+      padding: 0 1px;
+    }
+
+    /* Empty state */
+    .glossary-empty {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Hidden card */
+    .glossary-card[hidden] { display: none; }
+
+    @media (max-width: 640px) {
+      .glossary-grid { grid-template-columns: 1fr; }
+      .glossary-controls { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="site-nav"></nav>
+
+  <div class="glossary-layout">
+
+    <div class="page-header">
+      <p class="page-header-eyebrow">Reference</p>
+      <h1 class="page-header-title">Glossary</h1>
+      <p class="page-header-desc">
+        Key terms and concepts used across the dissertation, grouped by theme. Filter by chapter or search to find a definition.
+      </p>
+    </div>
+
+    <!-- Controls -->
+    <div class="glossary-controls">
+      <div class="glossary-search-wrap">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="6" cy="6" r="4.5"/><path d="M10 10l2.5 2.5"/>
+        </svg>
+        <input class="glossary-search" id="glossarySearch" type="search" placeholder="Search terms or definitions…" autocomplete="off" />
+      </div>
+      <div class="filter-pills" id="filterPills">
+        <button class="filter-pill active" data-ch="all">All</button>
+        <button class="filter-pill" data-ch="1">Ch. 1</button>
+        <button class="filter-pill" data-ch="2">Ch. 2</button>
+        <button class="filter-pill" data-ch="3">Ch. 3</button>
+        <button class="filter-pill" data-ch="4">Ch. 4</button>
+        <button class="filter-pill" data-ch="5">Ch. 5</button>
+        <button class="filter-pill" data-ch="6">Ch. 6</button>
+      </div>
+    </div>
+
+    <p class="glossary-disclaimer">
+      Generated from the dissertation text using Claude Sonnet 4.6 and inspected by the author.
+    </p>
+
+    <p class="glossary-count" id="glossaryCount"></p>
+
+    <!-- Sections injected by JS -->
+    <div id="glossaryRoot"></div>
+
+  </div>
+
+  <footer class="site-footer">
+    Roxanne El Baff · Bauhaus-Universität Weimar · 2026
+  </footer>
+
+  <script>
+  (function () {
+
+    /* ── Section mapping ───────────────────────────── */
+    const SECTIONS = [
+      {
+        label: "Argumentation Theory",
+        ids: ["argumentation","rhetorical_argumentation","logic_analytica","dialectic_dialectica",
+              "rhetoric_rhetorica","pathos","logos","ethos","rhetorical_canons",
+              "defeasible_reasoning","abstract_argumentation_framework",
+              "value_based_argumentation","argument_scheme"]
+      },
+      {
+        label: "Argument Quality",
+        ids: ["argument_quality","cogency","reasonableness","argument_effectiveness",
+              "challenging","reinforcing","empowering","stance_change",
+              "high_quality_argument","lowest_quality_argument","ideological_gap","cross_ideological_reach"]
+      },
+      {
+        label: "Audience & Ideology",
+        ids: ["audience_profile","political_ideology","liberal_conservative","ideological_intensity",
+              "cross_ideological_persuasion","personality_traits_big_five","role_models_cluster",
+              "sacred_values","echo_chamber","brahmin_left","ideological_prior_llms","conservative_gap"]
+      },
+      {
+        label: "Computational Argumentation & NLP",
+        ids: ["computational_argumentation","natural_language_processing","argument_mining",
+              "argument_structure","argumentative_discourse_unit","microtext","topic_stance_pair"]
+      },
+      {
+        label: "Style & Text Features",
+        ids: ["style_features","liwc","analytical_thinking","clout","authenticity_liwc",
+              "emotional_tone","nrc_lexicon","mpqa_arguing_lexicon","subjectivity",
+              "geographical_scope","discourse_parts","style_pattern","polar_emotional_tone"]
+      },
+      {
+        label: "Machine Learning",
+        ids: ["supervised_learning","classification","regression","feature_engineering","svm",
+              "transformer","ngram","tfidf","cross_validation","leave_one_topic_out",
+              "topic_independent_model","clustering","kmeans","elbow_method","topic_modeling","lda"]
+      },
+      {
+        label: "Large Language Models",
+        ids: ["llm","instruction_tuned_llm","icl","prompting_strategies","rag",
+              "activation_engineering","steering_vector","role_playing_prompting",
+              "ideology_impersonation","llm_as_judge","statistical_language_model",
+              "word_embedding","glove"]
+      },
+      {
+        label: "Argument Generation & Rewriting",
+        ids: ["argument_generation","argument_rewriting","text_style_transfer","non_parallel_data",
+              "author_side_conditioning","audience_side_conditioning","cosine_similarity",
+              "pairwise_tournament","strategy_adherence","position_bias","kairos"]
+      },
+      {
+        label: "Corpora & Annotation",
+        ids: ["corpus","webis_corpus","debateorg_corpus","discourse_level_annotation",
+              "component_level_annotation","priming_effect","outlet_bias","temporal_drift",
+              "crowdsourcing","pilot_study","majority_vote","iaa","krippendorff_alpha",
+              "cohen_kappa","label_skew"]
+      },
+      {
+        label: "Evaluation & Statistics",
+        ids: ["macro_f1","majority_baseline","effect_size","anova","kruskal_wallis",
+              "bonferroni","holm_bonferroni","mcnemar","shapiro_wilk","levene",
+              "kendall_tau","moral_frames","perplexity","ngram_overlap","rmse"]
+      }
+    ];
+
+    /* ── State ─────────────────────────────────────── */
+    let allTerms   = [];
+    let activeChapter = 'all';
+    let searchQuery   = '';
+
+    /* ── DOM refs ──────────────────────────────────── */
+    const root    = document.getElementById('glossaryRoot');
+    const search  = document.getElementById('glossarySearch');
+    const count   = document.getElementById('glossaryCount');
+    const pills   = document.querySelectorAll('.filter-pill');
+
+    /* ── Highlight helper ──────────────────────────── */
+    function highlight(text, query) {
+      if (!query) return escHtml(text);
+      const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      return escHtml(text).replace(new RegExp(`(${escaped})`, 'gi'), '<mark>$1</mark>');
+    }
+    function escHtml(str) {
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    /* ── Render ────────────────────────────────────── */
+    function render() {
+      const q = searchQuery.trim().toLowerCase();
+      root.innerHTML = '';
+
+      // Build a lookup by id
+      const byId = Object.fromEntries(allTerms.map(t => [t.id, t]));
+
+      let totalVisible = 0;
+
+      SECTIONS.forEach(section => {
+        // Get terms for this section, in order
+        const terms = section.ids.map(id => byId[id]).filter(Boolean);
+
+        // Apply chapter filter
+        const chFiltered = activeChapter === 'all'
+          ? terms
+          : terms.filter(t => t.chapters.includes(Number(activeChapter)));
+
+        // Apply search filter
+        const visible = chFiltered.filter(t =>
+          !q ||
+          t.term.toLowerCase().includes(q) ||
+          t.definition.toLowerCase().includes(q)
+        );
+
+        if (visible.length === 0) return;
+        totalVisible += visible.length;
+
+        const sec = document.createElement('div');
+        sec.className = 'glossary-section';
+        sec.innerHTML = `<p class="glossary-section-title">${escHtml(section.label)}<span style="font-size:0.75em;font-weight:400;margin-left:0.5rem;">${visible.length} term${visible.length !== 1 ? 's' : ''}</span></p>`;
+
+        const grid = document.createElement('div');
+        grid.className = 'glossary-grid';
+
+        visible.forEach(term => {
+          const chTags = term.chapters
+            .sort((a,b) => a-b)
+            .map(c => `<span class="ch-tag ch-tag-${c}">Ch. ${c}</span>`)
+            .join('');
+
+          const card = document.createElement('div');
+          card.className = 'glossary-card';
+          card.innerHTML = `
+            <p class="glossary-term">${highlight(term.term, q)}</p>
+            <p class="glossary-definition">${highlight(term.definition, q)}</p>
+            <div class="glossary-chapters">${chTags}</div>`;
+          grid.appendChild(card);
+        });
+
+        sec.appendChild(grid);
+        root.appendChild(sec);
+      });
+
+      // Count label
+      count.textContent = totalVisible === 0
+        ? 'No terms match your search.'
+        : `${totalVisible} term${totalVisible !== 1 ? 's' : ''}`;
+
+      if (totalVisible === 0) {
+        root.innerHTML = `<div class="glossary-empty">No terms match your filters. Try clearing the search or selecting a different chapter.</div>`;
+      }
+    }
+
+    /* ── Event listeners ───────────────────────────── */
+    search.addEventListener('input', () => {
+      searchQuery = search.value;
+      render();
+    });
+
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        activeChapter = pill.dataset.ch;
+        render();
+      });
+    });
+
+    /* ── Load data ─────────────────────────────────── */
+    fetch('glossary.json')
+      .then(r => r.json())
+      .then(data => {
+        allTerms = data.glossary;
+        render();
+      })
+      .catch(() => {
+        root.innerHTML = `<div class="glossary-empty">Could not load glossary data.</div>`;
+      });
+
+  })();
+  </script>
+  <script src="js/nav.js"></script>
+
+</body>
+</html>
