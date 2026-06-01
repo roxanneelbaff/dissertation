@@ -23,18 +23,21 @@
 
     <!-- ── Podcast ── -->
     <div class="podcast-section">
-      <h2 style="font-family:'Lora',serif;font-size:1.15rem;font-weight:700;margin-bottom:0.3rem;">Podcast</h2>
-      <p style="font-size:0.85rem;color:#64748b;margin-bottom:1.25rem;">
-        A conversational deep-dive into the dissertation, generated with
-        <a href="https://notebooklm.google.com" target="_blank" rel="noopener" style="color:#2d6a4f;font-weight:500;">Google NotebookLM</a>.
-        Available in four languages — approx. 20–40 min each.
-      </p>
+      <h2 style="font-family:'Lora',serif;font-size:1.15rem;font-weight:700;margin-bottom:0.75rem;">Podcast</h2>
+
+      <div style="background:#f0fdf8;border:1px solid #99e8d4;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.25rem;display:flex;gap:0.75rem;align-items:flex-start;">
+        <span style="font-size:1.25rem;line-height:1;flex-shrink:0;">🎙️</span>
+        <p style="font-size:0.85rem;color:#1e4a3a;line-height:1.65;margin:0;">
+          <strong>About these podcasts —</strong>
+          These episodes are an accessible, non-technical retelling of the dissertation — made for curious minds outside Computational Linguistics, or anyone who wants a conversational overview before (or instead of) reading the full text. Expect informal discussion, simplified analogies, and no equations. Generated with <a href="https://notebooklm.google.com" target="_blank" rel="noopener" style="color:#2d6a4f;font-weight:600;">Google NotebookLM</a>.
+        </p>
+      </div>
 
       <div class="podcast-tabs">
         <button class="podcast-tab active" data-lang="en">🇬🇧 English</button>
-        <button class="podcast-tab" data-lang="ar">🇱🇧 Arabic</button>
-        <button class="podcast-tab" data-lang="fr">🇫🇷 French</button>
         <button class="podcast-tab" data-lang="de">🇩🇪 German</button>
+        <button class="podcast-tab" data-lang="ar">ع Arabic</button>
+        <button class="podcast-tab" data-lang="fr">🇫🇷 French</button>
       </div>
 
       <div id="pane-en" class="podcast-pane active">
@@ -54,24 +57,34 @@
       </div>
 
       <div id="pane-ar" class="podcast-pane">
-        <div class="podcast-card">
-          <div class="podcast-card-left">🎙️</div>
-          <div class="podcast-card-body">
-            <p class="podcast-card-title">Arabic Episode — الحلقة العربية</p>
-            <p class="podcast-card-meta">~20–40 min · Generated with Google NotebookLM</p>
+        <div class="podcast-card" style="flex-direction:column;align-items:flex-start;gap:0.85rem;">
+          <div style="display:flex;align-items:center;gap:0.75rem;">
+            <div class="podcast-card-left">🎙️</div>
+            <div class="podcast-card-body">
+              <p class="podcast-card-title">Arabic Episode — الحلقة العربية</p>
+              <p class="podcast-card-meta">Generated with Google NotebookLM</p>
+            </div>
           </div>
-          <span class="badge badge-pre-llm" style="flex-shrink:0;">Coming soon</span>
+          <audio controls style="width:100%;border-radius:6px;">
+            <source src="audio/podcast_arabic_elbaff_dissertation.m4a" type="audio/mp4">
+            Your browser does not support the audio element.
+          </audio>
         </div>
       </div>
 
       <div id="pane-fr" class="podcast-pane">
-        <div class="podcast-card">
-          <div class="podcast-card-left">🎙️</div>
-          <div class="podcast-card-body">
-            <p class="podcast-card-title">French Episode — Épisode français</p>
-            <p class="podcast-card-meta">~20–40 min · Generated with Google NotebookLM</p>
+        <div class="podcast-card" style="flex-direction:column;align-items:flex-start;gap:0.85rem;">
+          <div style="display:flex;align-items:center;gap:0.75rem;">
+            <div class="podcast-card-left">🎙️</div>
+            <div class="podcast-card-body">
+              <p class="podcast-card-title">French Episode — Épisode français</p>
+              <p class="podcast-card-meta">Generated with Google NotebookLM</p>
+            </div>
           </div>
-          <span class="badge badge-pre-llm" style="flex-shrink:0;">Coming soon</span>
+          <audio controls style="width:100%;border-radius:6px;">
+            <source src="audio/podcast_francais_elbaff_dissertation.m4a" type="audio/mp4">
+            Your browser does not support the audio element.
+          </audio>
         </div>
       </div>
 
