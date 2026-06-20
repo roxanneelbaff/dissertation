@@ -5,8 +5,96 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Read — Audience-Aware Modeling in Computational Argumentation</title>
   <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ── Password overlay ── */
+    #pw-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0.55);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    #pw-box {
+      background: #fff;
+      border-radius: 14px;
+      padding: 2rem 2.25rem;
+      max-width: 380px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+      text-align: center;
+    }
+    #pw-box .pw-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    #pw-box h2 {
+      font-family: 'Lora', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.4rem;
+    }
+    #pw-box p {
+      font-size: 0.82rem;
+      color: #64748b;
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+    #pw-input {
+      width: 100%;
+      padding: 0.6rem 0.9rem;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+      margin-bottom: 0.75rem;
+      text-align: center;
+      letter-spacing: 0.08em;
+    }
+    #pw-input:focus { border-color: #2d6a4f; }
+    #pw-input.error { border-color: #ef4444; animation: shake 0.3s; }
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      25%      { transform: translateX(-6px); }
+      75%      { transform: translateX(6px); }
+    }
+    #pw-submit {
+      width: 100%;
+      padding: 0.65rem;
+      background: #2d6a4f;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    #pw-submit:hover { background: #1e4d38; }
+    #pw-error {
+      font-size: 0.78rem;
+      color: #ef4444;
+      margin-top: 0.5rem;
+      min-height: 1rem;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- ── Password gate ── -->
+  <div id="pw-overlay">
+    <div id="pw-box">
+      <div class="pw-icon">🔒</div>
+      <h2>Access Required</h2>
+      <p>Enter the access code to download the dissertation documents.</p>
+      <input id="pw-input" type="password" placeholder="Access code" autocomplete="off" />
+      <button id="pw-submit">Unlock</button>
+      <div id="pw-error"></div>
+    </div>
+  </div>
 
   <nav id="site-nav"></nav>
 
@@ -34,12 +122,11 @@
           <span class="badge badge-pipeline" style="margin-bottom:0.6rem;display:inline-block;">~200 pages</span>
         </div>
         <div class="link-row" style="margin-top:0.5rem;">
-          <a class="link-btn primary disabled" href="#" title="Coming soon">
+          <a id="btn-full" class="link-btn primary disabled" href="#" onclick="return false;">
             <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.5 1v8M3 6l3.5 3.5L10 6"/><path d="M1 11h11"/></svg>
             Download PDF
           </a>
         </div>
-        <p style="font-size:0.75rem;color:#94a3b8;margin-top:0.5rem;">Link coming soon</p>
       </div>
 
       <!-- Summary -->
@@ -54,12 +141,11 @@
           <span class="badge badge-pipeline" style="margin-bottom:0.6rem;display:inline-block;">6 pages</span>
         </div>
         <div class="link-row" style="margin-top:0.5rem;">
-          <a class="link-btn primary disabled" href="#" title="Coming soon">
+          <a id="btn-summary" class="link-btn primary disabled" href="#" onclick="return false;">
             <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.5 1v8M3 6l3.5 3.5L10 6"/><path d="M1 11h11"/></svg>
             Download PDF
           </a>
         </div>
-        <p style="font-size:0.75rem;color:#94a3b8;margin-top:0.5rem;">Link coming soon</p>
       </div>
 
     </div>
@@ -103,5 +189,87 @@
 
   <script src="js/nav.js"></script>
   <script src="js/main.js"></script>
+  <script>
+  (function () {
+    const SALT = 'dissertation-roxanne-2026';
+    const ENC = {
+      full:    'LUFRgs4Kj0qDLGImK8l830hEWUm6xsOCBUZSAtgXSR6tGB4qVZfJjGD1iARlC6oJY5voP9A846TesvngD+e/FkenGlzP6d/xYgld9+RYin8oXAA5o+4fZKJaZbKkdX7KNRJk95WvYWPOg2KU',
+      summary: 'z6R2k9WoSp+gx0/m6OJb4kwKbxJSoGoZZUiI6dow9p4tt7e8CZOJp5437ehfE+hOPgByYvXvyKTJPXOEcAc8i7eVgBYoQRxdDly0I1vetkBAeGUestH0vPf/vOchUnjCujv7eunsW8q//TDt'
+    };
+
+    function b64ToBytes(b64) {
+      const bin = atob(b64);
+      return Uint8Array.from(bin, c => c.charCodeAt(0));
+    }
+
+    async function deriveKey(password) {
+      const enc = new TextEncoder();
+      const raw = await crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveKey']);
+      return crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt: enc.encode(SALT), iterations: 200000, hash: 'SHA-256' },
+        raw,
+        { name: 'AES-GCM', length: 256 },
+        false,
+        ['decrypt']
+      );
+    }
+
+    async function decryptUrl(key, b64) {
+      const data = b64ToBytes(b64);
+      const iv   = data.slice(0, 12);
+      // format: iv(12) | ciphertext | tag(16) — WebCrypto reads tag from the end automatically
+      const cipherAndTag = data.slice(12);
+      const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, cipherAndTag);
+      return new TextDecoder().decode(plain);
+    }
+
+    async function unlock(password) {
+      try {
+        const key     = await deriveKey(password);
+        const urlFull = await decryptUrl(key, ENC.full);
+        const urlSum  = await decryptUrl(key, ENC.summary);
+        return { full: urlFull, summary: urlSum };
+      } catch {
+        return null;
+      }
+    }
+
+    function activateButton(id, url) {
+      const btn = document.getElementById(id);
+      btn.href = url;
+      btn.removeAttribute('onclick');
+      btn.classList.remove('disabled');
+    }
+
+    const overlay  = document.getElementById('pw-overlay');
+    const input    = document.getElementById('pw-input');
+    const submit   = document.getElementById('pw-submit');
+    const errorEl  = document.getElementById('pw-error');
+
+    async function attempt() {
+      const pw = input.value.trim();
+      if (!pw) return;
+      submit.disabled = true;
+      submit.textContent = 'Checking…';
+      const urls = await unlock(pw);
+      if (urls) {
+        activateButton('btn-full',    urls.full);
+        activateButton('btn-summary', urls.summary);
+        overlay.style.display = 'none';
+      } else {
+        input.classList.add('error');
+        errorEl.textContent = 'Incorrect access code.';
+        setTimeout(() => input.classList.remove('error'), 400);
+        input.value = '';
+        input.focus();
+      }
+      submit.disabled = false;
+      submit.textContent = 'Unlock';
+    }
+
+    submit.addEventListener('click', attempt);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') attempt(); });
+  })();
+  </script>
 </body>
 </html>

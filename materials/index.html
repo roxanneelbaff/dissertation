@@ -5,89 +5,372 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Code &amp; Materials — Audience-Aware Modeling in Computational Argumentation</title>
   <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .materials-simple {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 5rem;
+    }
+
+    .materials-simple .page-header {
+      padding: 0;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── Chapter table ── */
+    .chapter-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      table-layout: fixed;
+    }
+    .chapter-table col.col-chapter  { width: 28%; }
+    .chapter-table col.col-code     { width: 24%; }
+    .chapter-table col.col-paper    { width: 20%; }
+    .chapter-table col.col-corpus   { width: 16%; }
+    .chapter-table col.col-guide    { width: 12%; }
+
+    .chapter-table thead th {
+      text-align: left;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      border-bottom: 2px solid #e2e8f0;
+      padding: 0 1rem 0.6rem;
+    }
+    .chapter-table thead th:first-child { padding-left: 0; }
+
+    .chapter-table tbody tr {
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .chapter-table tbody tr:last-child { border-bottom: none; }
+    .chapter-table tbody tr.section-row td { border-bottom: 1px dashed #e2e8f0; }
+    .chapter-table tbody tr.section-row:last-child td { border-bottom: 1px solid #e2e8f0; }
+
+    .chapter-table td {
+      padding: 1rem 1rem;
+      vertical-align: top;
+    }
+    .chapter-table td:first-child { padding-left: 0; }
+
+    /* chapter label cell */
+    .ch-label {
+      min-width: 0;
+    }
+    .ch-label .ch-num {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 0.25rem;
+    }
+    .ch-label .ch-name {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #0f172a;
+      line-height: 1.35;
+    }
+
+    /* section sub-row label */
+    .section-label {
+      padding-left: 1.25rem;
+    }
+    .section-label .section-num {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 0.2rem;
+    }
+    .section-label .section-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #334155;
+      line-height: 1.3;
+    }
+
+    /* bridge row */
+    .bridge-row td {
+      background: #fdf8f0;
+    }
+    .bridge-label {
+      display: inline-block;
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      background: #f59e0b;
+      color: #fff;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
+      margin-bottom: 0.3rem;
+    }
+
+    /* link chips */
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.3rem 0.65rem;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+      background: #fff;
+      color: #334155;
+      transition: background 0.15s, border-color 0.15s;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .chip:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+    .chip svg { flex-shrink: 0; opacity: 0.6; }
+    .chip.chip-paper { border-color: #bfdbfe; background: #eff6ff; color: #1d4ed8; }
+    .chip.chip-paper:hover { background: #dbeafe; }
+    .chip.chip-code  { border-color: #bbf7d0; background: #f0fdf4; color: #15803d; }
+    .chip.chip-code:hover  { background: #dcfce7; }
+    .chip.chip-corpus { border-color: #e9d5ff; background: #faf5ff; color: #7e22ce; }
+    .chip.chip-corpus:hover { background: #f3e8ff; }
+    .chip.chip-disabled {
+      opacity: 0.45;
+      pointer-events: none;
+      cursor: default;
+    }
+    .chip.chip-ext {
+      border-color: #fcd34d;
+      background: #fffbeb;
+      color: #92400e;
+    }
+
+    /* texttt-style prefix label inside chips */
+    .chip-prefix {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 700;
+      font-size: 0.78rem;
+      opacity: 0.65;
+      margin-right: 0.15rem;
+    }
+
+    /* icon shortcuts */
+    .ico-ext { display:inline-block; width:11px; height:11px; }
+
+    @media (max-width: 700px) {
+      .chapter-table thead { display: none; }
+      .chapter-table, .chapter-table tbody, .chapter-table tr, .chapter-table td {
+        display: block;
+        width: 100%;
+      }
+      .chapter-table td { padding: 0.5rem 0; }
+      .chapter-table tbody tr { padding: 1rem 0; }
+      .section-label { padding-left: 0.75rem; }
+    }
+  </style>
 </head>
 <body>
 
   <nav id="site-nav"></nav>
 
-  <!-- overlay for mobile sidebar -->
-  <div id="sidebar-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:39;"></div>
+  <div class="materials-simple">
+    <div class="page-header">
+      <p class="page-header-eyebrow">Dissertation Guide</p>
+      <h1 class="page-header-title">Code &amp; Materials</h1>
+      <p class="page-header-desc">
+        Papers, code, and datasets for each dissertation chapter — at a glance.
+      </p>
+    </div>
 
-  <div class="materials-layout">
-    <aside class="sidebar" id="sidebar"></aside>
+    <table class="chapter-table">
+      <colgroup>
+        <col class="col-chapter">
+        <col class="col-code">
+        <col class="col-paper">
+        <col class="col-corpus">
+        <col class="col-guide">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Chapter</th>
+          <th>Code</th>
+          <th>Paper</th>
+          <th>Corpus</th>
+          <th>Guidelines</th>
+        </tr>
+      </thead>
+      <tbody>
 
-    <main class="main-content">
-      <div class="page-header">
-        <p class="page-header-eyebrow">Dissertation Guide</p>
-        <h1 class="page-header-title">Code &amp; Materials</h1>
-        <p class="page-header-desc">
-          Chapter-by-chapter overviews, papers, corpora, and code repositories for all research contributions.
-        </p>
-      </div>
+        <!-- ── Chapter 3 ── -->
+        <tr>
+          <td class="ch-label">
+            <div class="ch-num">Chapter 3</div>
+            <div class="ch-name">Argument Quality Through an Audience&nbsp;Lens</div>
+          </td>
+          <td>
+            <div class="chip-list">
+              <a class="chip chip-code" href="https://github.com/roxanneelbaff/conll2018_editorial_effect" target="_blank" rel="noopener">
+                <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
+                Data Analysis
+              </a>
+            </div>
+            <div style="margin-top:0.4rem;">
+              <span class="bridge-label">Dissertation Extension</span>
+              <div class="chip-list" style="margin-top:0.3rem;">
+                <a class="chip chip-ext" href="https://github.com/roxanneelbaff/elbaff_dissertation_code" target="_blank" rel="noopener">
+                  <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+                  LLM Effect Prediction
+                </a>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="chip-list">
+              <a class="chip chip-paper" href="https://aclanthology.org/K18-1044/" target="_blank" rel="noopener">
+                <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+                CoNLL 2018
+              </a>
+            </div>
+          </td>
+          <td>
+            <div class="chip-list">
+              <a class="chip chip-corpus" href="https://webis.de/data/webis-editorial-quality-18.html" target="_blank" rel="noopener">
+                <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+                Webis-Editorial-Quality-18
+              </a>
+            </div>
+          </td>
+          <td>
+            <div class="chip-list">
+              <a class="chip chip-corpus" href="https://github.com/roxanneelbaff/conll2018_editorial_effect/tree/main/data/annotation_guidelines" target="_blank" rel="noopener">
+                <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+                Annotation Guidelines
+              </a>
+            </div>
+          </td>
+        </tr>
 
-      <!-- Chapter cards grid -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.25rem;margin-bottom:3rem;">
+        <!-- ── Chapter 4 ── -->
+        <tr>
+          <td class="ch-label">
+            <div class="ch-num">Chapter 4</div>
+            <div class="ch-name">The Role of Style in Audience&nbsp;Persuasion</div>
+          </td>
+          <td>
+            <div class="chip-list">
+              <a class="chip chip-code" href="https://github.com/roxanneelbaff/acl2020-editorials-analysis" target="_blank" rel="noopener">
+                <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
+                Liberal &amp; Conservative
+              </a>
+              <a class="chip chip-code" href="https://github.com/roxanneelbaff/peoples2020-editorials-analysis" target="_blank" rel="noopener">
+                <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
+                Personality &amp; Ideology Intensity
+              </a>
+            </div>
+          </td>
+          <td>
+            <div class="chip-list">
+              <a class="chip chip-paper" href="https://aclanthology.org/2020.acl-main.287/" target="_blank" rel="noopener">
+                <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+                ACL 2020
+              </a>
+              <a class="chip chip-paper" href="https://aclanthology.org/2020.peoples-1.4/" target="_blank" rel="noopener">
+                <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+                PEOPLES 2020
+              </a>
+            </div>
+          </td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
 
-        <a href="chapter-2.html" style="display:block;background:#fff;border:1px solid #e2e8f0;border-left:4px solid #475569;border-radius:10px;padding:1.5rem;transition:box-shadow .2s,transform .2s;text-decoration:none;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='';this.style.transform=''">
-          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem;">
-            <span class="badge badge-pipeline">Ch 2</span>
-          </div>
-          <p style="font-family:'Lora',serif;font-size:1rem;font-weight:700;color:#0f172a;margin-bottom:0.4rem;">Background &amp; Related Work</p>
-          <p style="font-size:0.82rem;color:#64748b;line-height:1.5;">Argumentation theory, computational argumentation landscape, and a multi-agent pipeline for related work exploration.</p>
-        </a>
+        <!-- ── Chapter 5 · §5.1 ── -->
+        <tr class="section-row">
+          <td class="ch-label" style="border-left:3px solid #8b6914;padding-left:0.75rem;">
+            <div class="ch-num">Chapter 5 · §&nbsp;5.1</div>
+            <div class="ch-name">Strategy-Based Generation</div>
+          </td>
+          <td>
+            <div class="chip-list">
+              <a class="chip chip-code" href="https://github.com/roxanneelbaff/inlg2019-argument-synthesis" target="_blank" rel="noopener">
+                <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
+                Argument Synthesis
+              </a>
+            </div>
+          </td>
+          <td>
+            <div class="chip-list">
+              <a class="chip chip-paper" href="https://aclanthology.org/W19-8607/" target="_blank" rel="noopener">
+                <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+                INLG 2019
+              </a>
+              <a class="chip chip-paper" href="https://aclanthology.org/C18-1318/" target="_blank" rel="noopener">
+                <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+                COLING 2018
+              </a>
+            </div>
+          </td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
 
-        <a href="chapter-3.html" style="display:block;background:#fff;border:1px solid #e2e8f0;border-left:4px solid #00897b;border-radius:10px;padding:1.5rem;transition:box-shadow .2s,transform .2s;text-decoration:none;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='';this.style.transform=''">
-          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem;">
-            <span class="badge badge-pipeline">Ch 3</span>
-            <span class="badge badge-assessment">Assessment</span>
-          </div>
-          <p style="font-family:'Lora',serif;font-size:1rem;font-weight:700;color:#0f172a;margin-bottom:0.4rem;">Argument Quality Through an Audience Lens</p>
-          <p style="font-size:0.82rem;color:#64748b;line-height:1.5;">A framework for cross-ideological argument quality with an annotated corpus of 1,000 news editorials.</p>
-        </a>
+        <!-- ── Chapter 5 · §5.2 bridge ── -->
+        <tr class="section-row bridge-row">
+          <td class="ch-label" style="border-left:3px solid #8b6914;padding-left:0.75rem;">
+            <div><span class="bridge-label">Dissertation Extension</span></div>
+            <div class="ch-num">Chapter 5 · §&nbsp;5.2</div>
+            <div class="ch-name">LLM-Based Strategy Generation</div>
+          </td>
+          <td>
+            <div class="chip-list">
+              <a class="chip chip-ext" href="https://github.com/roxanneelbaff/elbaff_dissertation_code" target="_blank" rel="noopener">
+                <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+                Dataset &amp; Scripts
+              </a>
+            </div>
+          </td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
 
-        <a href="chapter-4.html" style="display:block;background:#fff;border:1px solid #e2e8f0;border-left:4px solid #7b2d42;border-radius:10px;padding:1.5rem;transition:box-shadow .2s,transform .2s;text-decoration:none;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='';this.style.transform=''">
-          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem;">
-            <span class="badge badge-pipeline">Ch 4</span>
-            <span class="badge badge-analysis">Analysis</span>
-          </div>
-          <p style="font-family:'Lora',serif;font-size:1rem;font-weight:700;color:#0f172a;margin-bottom:0.4rem;">The Role of Style in Audience Persuasion</p>
-          <p style="font-size:0.82rem;color:#64748b;line-height:1.5;">Which style features impact argument effectiveness across political ideologies, intensity levels, and personality profiles.</p>
-        </a>
+        <!-- ── Chapter 5 · §5.3 ── -->
+        <tr>
+          <td class="ch-label" style="border-left:3px solid #8b6914;padding-left:0.75rem;">
+            <div class="ch-num">Chapter 5 · §&nbsp;5.3</div>
+            <div class="ch-name">From Ineffective to&nbsp;Effective</div>
+          </td>
+          <td>
+            <div class="chip-list">
+              <a class="chip chip-code" href="https://github.com/roxanneelbaff/emnlp2024-iesta" target="_blank" rel="noopener">
+                <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
+                IESTA
+              </a>
+            </div>
+          </td>
+          <td>
+            <div class="chip-list">
+              <a class="chip chip-paper" href="https://aclanthology.org/2024.findings-emnlp.265/" target="_blank" rel="noopener">
+                <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
+                EMNLP Findings 2024
+              </a>
+            </div>
+          </td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
 
-        <a href="chapter-5.html" style="display:block;background:#fff;border:1px solid #e2e8f0;border-left:4px solid #8b6914;border-radius:10px;padding:1.5rem;transition:box-shadow .2s,transform .2s;text-decoration:none;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='';this.style.transform=''">
-          <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.6rem;">
-            <span class="badge badge-pipeline">Ch 5</span>
-            <span class="badge badge-generation">Generation</span>
-          </div>
-          <p style="font-family:'Lora',serif;font-size:1rem;font-weight:700;color:#0f172a;margin-bottom:0.4rem;">Ideology-Based Argument Generation</p>
-          <p style="font-size:0.82rem;color:#64748b;line-height:1.5;">Two approaches: pre-LLM rhetorical strategy synthesis and LLM-era ideology-conditioned argument rewriting.</p>
-        </a>
-
-      </div>
-
-      <!-- Dissertation map -->
-      <div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:1.5rem 1.75rem;">
-        <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#94a3b8;margin-bottom:1rem;">Contribution Map</p>
-        <div style="display:grid;grid-template-columns:auto 1fr 1fr;gap:0.4rem 1rem;font-size:0.82rem;align-items:center;">
-          <span style="font-weight:700;color:#94a3b8;font-size:0.7rem;text-transform:uppercase;letter-spacing:.06em;">Chapter</span>
-          <span style="font-weight:700;color:#94a3b8;font-size:0.7rem;text-transform:uppercase;letter-spacing:.06em;">Task</span>
-          <span style="font-weight:700;color:#94a3b8;font-size:0.7rem;text-transform:uppercase;letter-spacing:.06em;">Focus</span>
-
-          <span class="badge badge-pipeline" style="width:fit-content;">Ch 3</span>
-          <span class="badge badge-assessment" style="width:fit-content;">Assessment</span>
-          <span style="color:#334155;">Argument quality &amp; ideology-aware corpus</span>
-
-          <span class="badge badge-pipeline" style="width:fit-content;">Ch 4</span>
-          <span class="badge badge-analysis" style="width:fit-content;">Analysis</span>
-          <span style="color:#334155;">Style features across audience profiles</span>
-
-          <span class="badge badge-pipeline" style="width:fit-content;">Ch 5</span>
-          <span class="badge badge-generation" style="width:fit-content;">Generation</span>
-          <span style="color:#334155;">Strategy-based &amp; LLM argument rewriting</span>
-        </div>
-      </div>
-
-    </main>
+      </tbody>
+    </table>
   </div>
 
   <footer class="site-footer">
@@ -95,7 +378,6 @@
   </footer>
 
   <script src="../js/nav.js"></script>
-  <script src="../js/sidebar.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>
