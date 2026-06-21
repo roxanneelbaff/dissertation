@@ -6,9 +6,9 @@
 
   const links = [
     { href: base + 'index.html',                                   label: 'Home',             key: 'home' },
+    { href: inMaterials ? 'index.html' : 'materials/index.html',   label: 'Code &amp; Materials', key: 'materials' },
     { href: base + 'read.html',                                    label: 'Read',             key: 'read' },
     { href: base + 'listen.html',                                  label: 'Listen',           key: 'listen' },
-    { href: inMaterials ? 'index.html' : 'materials/index.html',   label: 'Code &amp; Materials', key: 'materials' },
     { href: base + 'glossary.html',                                label: 'Glossary',         key: 'glossary' },
   ];
 
