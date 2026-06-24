@@ -381,6 +381,87 @@
 
       </tbody>
     </table>
+
+    <!-- ── Abstract ── -->
+    <div style="margin-top:3rem;">
+      <h2 style="font-family:'Lora',serif;font-size:1.15rem;font-weight:700;color:#0f172a;margin-bottom:0.5rem;">Abstract</h2>
+      <p style="font-size:0.9rem;color:#475569;margin-bottom:1rem;">
+        The dissertation abstract is available in both English and German. Below is the prompt used to produce the German translation with a large language model.
+        The translation was reviewed by the author to ensure it matches the original English text.
+      </p>
+
+      <details style="border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+        <summary style="cursor:pointer;padding:0.85rem 1.1rem;font-size:0.85rem;font-weight:600;color:#334155;background:#f8fafc;list-style:none;display:flex;align-items:center;gap:0.5rem;">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;transition:transform 0.2s;" class="summary-arrow"><path d="M3 5l4 4 4-4"/></svg>
+          German Translation Prompt
+        </summary>
+        <pre style="margin:0;padding:1.25rem 1.4rem;font-size:0.78rem;line-height:1.65;background:#fff;color:#1e293b;white-space:pre-wrap;word-break:break-word;overflow-x:auto;border-top:1px solid #e2e8f0;font-family:'Courier New',Courier,monospace;">You are a scientific translator specializing in German-language NLP dissertations. Your task is to translate the following English abstract into a German scientific abstract that meets the standards of German academic writing in the NLP field.
+
+Follow these rules strictly:
+
+---
+
+**Voice and Person**
+
+- Never use first person. Do not use "wir" or "ich" under any circumstances.
+- Use passive constructions: _"Es wird gezeigt, dass..."_, _"Es wird ein Framework vorgeschlagen..."_
+- Or use nominalized subject constructions: _"Die vorliegende Arbeit untersucht..."_, _"Diese Dissertation schlägt vor..."_
+- Never translate "we show" as "wir zeigen" — always recast as passive or nominal.
+
+**Tense**
+
+- Use present tense throughout for contributions and findings.
+- Past tense is only acceptable for describing experimental procedures if it improves clarity.
+
+**Terminology**
+
+- Keep established English NLP and technical terms in English when no standard German equivalent exists. Examples: "Transformer", "Fine-Tuning", "Large Language Model", "Corpus", "Framework", "Benchmark". Do not invent German translations for these.
+- Define abbreviations on first use in German: _"Computationale Argumentation (CA)"_.
+- Use German decimal comma notation: _"0,42"_ not _"0.42"_.
+
+**Structure** Preserve the implicit structure of the English abstract in this order:
+
+1. Motivation — why the problem matters
+2. Gap — what prior work has not addressed
+3. Contribution — what this work does
+4. Method and data — how and on what
+5. Key findings — the main empirical results
+6. Implication — what the findings mean (if present)
+
+**Register and Style**
+
+- The register is formal academic German. No colloquialisms.
+- Prefer nominalized constructions over verbal ones where natural in German: _"die Untersuchung zeigt"_ rather than _"es wird untersucht und gezeigt"_.
+- Avoid overlong sentence chains. German academic writing allows complex sentences, but each sentence should carry one clear idea.
+- Do not hedge findings more than the original. If the English says "shows", use "zeigt", not "könnte darauf hindeuten".
+- Do not strengthen findings beyond the original. If the English says "suggests", use "deutet darauf hin", not "beweist".
+
+**Formatting**
+
+- Continuous prose only. No bullet points, no numbered lists, no citations, no footnotes.
+- Do not add content that is not in the English original.
+- Do not omit content that is in the English original.
+- The German abstract must be equivalent in scope and claims to the English version — not longer, not shorter by more than one sentence.
+
+---
+
+**English abstract to translate:**
+
+[English_Abstract]
+
+---
+
+After translating, verify:
+
+- [ ]  No "wir" or "ich" anywhere
+- [ ]  All NLP technical terms kept in English
+- [ ]  Decimal comma used for all numbers
+- [ ]  Present tense used for findings and contributions
+- [ ]  No citations or references included
+- [ ]  Passive or nominal constructions used throughout</pre>
+      </details>
+    </div>
+
   </div>
 
   <footer class="site-footer">
