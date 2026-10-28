@@ -182,8 +182,27 @@
         display: block;
         width: 100%;
       }
-      .chapter-table td { padding: 0.5rem 0; }
-      .chapter-table tbody tr { padding: 1rem 0; }
+      .chapter-table tbody tr {
+        padding: 1rem 0;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .chapter-table tbody tr:last-child { border-bottom: none; }
+      .chapter-table td {
+        padding: 0.35rem 0;
+      }
+      /* hide dash-only cells on mobile */
+      .chapter-table td.td-dash { display: none; }
+      /* show column label before each non-chapter cell */
+      .chapter-table td[data-label]:not([data-label=""])::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #94a3b8;
+        margin-bottom: 0.3rem;
+      }
       .section-label { padding-left: 0.75rem; }
     }
   </style>
@@ -226,7 +245,7 @@
             <div class="ch-num">Chapter 3</div>
             <a class="ch-name ch-link" href="chapter-3.html">Argument Quality Through an Audience&nbsp;Lens</a>
           </td>
-          <td>
+          <td data-label="Code">
             <div class="chip-list">
               <a class="chip chip-code" href="https://github.com/roxanneelbaff/conll2018_editorial_effect" target="_blank" rel="noopener">
                 <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
@@ -243,15 +262,23 @@
               </div>
             </div>
           </td>
-          <td>
+          <td data-label="Paper">
             <div class="chip-list">
               <a class="chip chip-paper" href="https://aclanthology.org/K18-1044/" target="_blank" rel="noopener">
                 <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
                 CoNLL 2018
               </a>
             </div>
+            <div style="margin-top:0.4rem;">
+              <span style="visibility:hidden;" class="bridge-label">Dissertation Extension</span>
+              <!-- <span style="visibility:hidden;display:inline-block;font-size:0.63rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;padding:0.15rem 0.45rem;border-radius:4px;margin-bottom:0.3rem;">Dissertation Extension</span> -->
+              <div style="margin-top:-1rem;">
+                <span style="display:inline-block;font-size:0.65rem;font-weight:600;color:#475569;background:#f1f5f9;border:1px solid #94a3b8;padding:0.25rem 0.5rem;border-radius:4px;letter-spacing:0.03em;line-height:1.5;text-align:center;">Submitted to<br>ARR Oct 26</span>
+              </div>
+            </div>
+            
           </td>
-          <td>
+          <td data-label="Corpus">
             <div class="chip-list">
               <a class="chip chip-corpus" href="https://webis.de/data/webis-editorial-quality-18.html" target="_blank" rel="noopener">
                 <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
@@ -259,7 +286,7 @@
               </a>
             </div>
           </td>
-          <td>
+          <td data-label="Guidelines">
             <div class="chip-list">
               <a class="chip chip-corpus" href="https://github.com/roxanneelbaff/conll2018_editorial_effect/tree/main/data/annotation_guidelines" target="_blank" rel="noopener">
                 <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
@@ -275,7 +302,7 @@
             <div class="ch-num">Chapter 4</div>
             <a class="ch-name ch-link" href="chapter-4.html">The Role of Style in Audience&nbsp;Persuasion</a>
           </td>
-          <td>
+          <td data-label="Code">
             <div class="chip-list">
               <a class="chip chip-code" href="https://github.com/webis-de/acl20-editorials-style-persuasive-effect" target="_blank" rel="noopener">
                 <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
@@ -287,7 +314,7 @@
               </a>
             </div>
           </td>
-          <td>
+          <td data-label="Paper">
             <div class="chip-list">
               <a class="chip chip-paper" href="https://aclanthology.org/2020.acl-main.287/" target="_blank" rel="noopener">
                 <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
@@ -299,8 +326,8 @@
               </a>
             </div>
           </td>
-          <td>—</td>
-          <td>—</td>
+          <td class="td-dash">—</td>
+          <td class="td-dash">—</td>
         </tr>
 
         <!-- ── Chapter 5 · §5.1 ── -->
@@ -309,7 +336,7 @@
             <div class="ch-num">Chapter 5 · §&nbsp;5.1</div>
             <a class="ch-name ch-link" href="chapter-5.html">Strategy-Based Generation</a>
           </td>
-          <td>
+          <td data-label="Code">
             <div class="chip-list">
               <a class="chip chip-code" href="https://github.com/roxanneelbaff/inlg2019-argument-synthesis" target="_blank" rel="noopener">
                 <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
@@ -317,7 +344,7 @@
               </a>
             </div>
           </td>
-          <td>
+          <td data-label="Paper">
             <div class="chip-list">
               <a class="chip chip-paper" href="https://aclanthology.org/W19-8607/" target="_blank" rel="noopener">
                 <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
@@ -325,12 +352,12 @@
               </a>
               <a class="chip chip-paper" href="https://aclanthology.org/C18-1318/" target="_blank" rel="noopener">
                 <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
-                COLING 2018
+                COLING 2018<sup style="font-size:1.2em;margin-left:2px;font-weight:700;">*</sup>
               </a>
             </div>
           </td>
-          <td>—</td>
-          <td>—</td>
+          <td class="td-dash">—</td>
+          <td class="td-dash">—</td>
         </tr>
 
         <!-- ── Chapter 5 · §5.2 bridge ── -->
@@ -340,7 +367,7 @@
             <div class="ch-num">Chapter 5 · §&nbsp;5.2</div>
             <a class="ch-name ch-link" href="chapter-5.html">LLM-Based Strategy Generation</a>
           </td>
-          <td>
+          <td data-label="Code">
             <div class="chip-list">
               <a class="chip chip-ext" href="https://github.com/roxanneelbaff/elbaff_dissertation_code" target="_blank" rel="noopener">
                 <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
@@ -348,9 +375,9 @@
               </a>
             </div>
           </td>
-          <td>—</td>
-          <td>—</td>
-          <td>—</td>
+          <td class="td-dash">—</td>
+          <td class="td-dash">—</td>
+          <td class="td-dash">—</td>
         </tr>
 
         <!-- ── Chapter 5 · §5.3 ── -->
@@ -359,7 +386,7 @@
             <div class="ch-num">Chapter 5 · §&nbsp;5.3</div>
             <a class="ch-name ch-link" href="chapter-5.html">From Ineffective to&nbsp;Effective</a>
           </td>
-          <td>
+          <td data-label="Code">
             <div class="chip-list">
               <a class="chip chip-code" href="https://github.com/roxanneelbaff/emnlp2024-iesta" target="_blank" rel="noopener">
                 <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 2h9v9H2zM5 2v9M2 5h9"/></svg>
@@ -367,7 +394,7 @@
               </a>
             </div>
           </td>
-          <td>
+          <td data-label="Paper">
             <div class="chip-list">
               <a class="chip chip-paper" href="https://aclanthology.org/2024.findings-emnlp.265/" target="_blank" rel="noopener">
                 <svg class="ico-ext" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10L10 2M4 2h6v6"/></svg>
@@ -375,12 +402,16 @@
               </a>
             </div>
           </td>
-          <td>—</td>
-          <td>—</td>
+          <td class="td-dash">—</td>
+          <td class="td-dash">—</td>
         </tr>
 
       </tbody>
     </table>
+
+    <p style="font-size:0.72rem;color:#94a3b8;margin-top:0.75rem;line-height:1.5;">
+      <sup style="font-size:1.2em;font-weight:700;color:#1d4ed8;">*</sup> Not a primary author — contribution limited to data analysis. The dataset produced is used in the INLG 2019 work.
+    </p>
 
     <!-- ── Abstract ── -->
     <div style="margin-top:3rem;">
