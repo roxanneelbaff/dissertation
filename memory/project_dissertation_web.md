@@ -15,7 +15,7 @@ A static dissertation guide website for Roxanne El Baff's PhD dissertation.
 - Degree: Dr. rer. nat. (not yet awarded — "dissertation to obtain")
 - Institution: Faculty of Media, Bauhaus-Universität Weimar, 2026
 - Advisors: Prof. Dr. Benno Stein, Prof. Dr. Henning Wachsmuth
-- Oral exam: April 15, 2026
+- Oral exam: TBD
 
 ## Site structure
 - Plain HTML + custom CSS (css/styles.css) + JS (js/main.js, js/sidebar.js)
