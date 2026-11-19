@@ -46,5 +46,11 @@
   if (nav) {
     nav.className = 'site-nav';
     nav.innerHTML = html;
+
+    const banner = document.createElement('div');
+    banner.style.cssText = 'position:sticky;top:0;z-index:51;background:#fef9ec;border-bottom:1px solid #fde68a;padding:0.45rem 2rem;text-align:center;display:flex;align-items:center;justify-content:center;gap:0.75rem;flex-wrap:wrap;';
+    banner.innerHTML = '<span style="background:#b45309;color:#fff;font-size:0.65rem;font-weight:800;letter-spacing:0.08em;padding:0.2rem 0.5rem;border-radius:4px;text-transform:uppercase;">Under Review</span>'
+      + '<p style="font-size:0.875rem;font-weight:600;color:#78350f;margin:0;">Dissertation submitted in June 2026</p>';
+    document.body.insertBefore(banner, document.body.firstChild);
   }
 })();
